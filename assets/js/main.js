@@ -28,26 +28,23 @@ document.querySelector('form').addEventListener('submit', function (event) {
         case "easy":
             cells_number = 100; // 10 * 10
             cols_number = 10;
-            // Evoco funzione con 100 numeri random
             break
         // Difficoltà intermedia 
         case "medium":
             cells_number = 81; // 9 * 9
             cols_number = 9;
-            // Evoco funzione con 81 numeri random
             break
         // Difficoltà difficile
         case "hard":
             cells_number = 49;
             cols_number = 7; // 7 * 7
-            // Evoco funzione con 81 numeri random
             break
     }
 
     // console.log(cells_number, cols_number);
     generate_grid(cells_number, cols_number)
     handleClick()
-
+    explodeBomb()
     // Logghiamo in console
 
 })
@@ -105,6 +102,47 @@ function handleClick() {
     }
 }
 
+// Funzione per generare bombe
+function explodeBomb() {
+    // 1.  Seleziono tutte le celle (querySelectorAll). Le celle necessarie della griglia
+    const cells = document.querySelectorAll('.cell')
+    console.log(cells);
+
+    for (let i = 0; i < 16; i++) {
+        const cellElement = cells[i];
+        console.log(cellElement);
+        // 3. Attacchiamo l'event listener all'elemento della DOM (cell).
+        cellElement.addEventListener('click', function() {
+            
+            function getRandom(cells_number) {
+                // Array Vuoto
+                const arrayNumbers = [];
+                // Costante i
+                let i = 0;
+                // Avvio Ciclo While
+                while (i < 16) {
+                    let risultato = parseInt(Math.floor(Math.random() * cells_number));
+                    // Logghiamo in console
+                    console.log(risultato);
+                    // Pushiamo risultato dentro ad array numbers
+                    arrayNumbers.push(risultato);
+                    // N Volte da ripetere risultato
+                    i++
+                }
+                let risultato = arrayNumbers;
+                return risultato;
+            }    
+            // su che elemento ho cliccato? lo vedo col dis
+            console.log(this);
+            console.log(getRandom);
+            // 4. evidenziare la cella di rosso (bomba). (metodo richiamo classe nel css)
+            this.classList.add("cell_bomb")
+        });
+    }
+}
+
+
+
 // MILESTONE 2
 
 /* 
@@ -116,84 +154,35 @@ se il numero è presente nella lista dei numeri generati - abbiamo calpestato un
 la cella si colora di rosso e la partita termina,
 
 altrimenti la cella cliccata si colora di azzurro e l'utente può continuare a cliccare sulle altre celle.
-La partita termina quando:
-
-il giocatore clicca su una bomba
+La partita termina quando: il giocatore clicca su una bomba
 o raggiunge il numero massimo possibile di numeri consentiti.
 
 Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha cliccato su una cella che non era una bomba.
 */
 
-// Prima funzione
 
-console.log("numeri random per difficoltà 100");
-function getRandom100() {
-    // Array Vuoto
-    const arrayNumbers = [];
-    // Costante i
-    let i = 1;
-    // Avvio Ciclo While
-    while (i <= 16) {
-        let risultato = parseInt(Math.floor(Math.random() * 100));    
-        // Logghiamo in console
-        console.log(risultato);
-        // Pushiamo risultato dentro ad array numbers
-        arrayNumbers.push(risultato);
-        // N Volte da ripetere risultato
-        i++
-    }
-    let risultato = arrayNumbers;
-    return risultato;
-}
 
-let risultato = getRandom100()
-console.log(risultato);
 
-// Seconda funzione
-console.log("numeri random per difficoltà 81");
-function getRandom81() {
-    // Array Vuoto
-    const arrayNumbers = [];
-    // Costante i
-    let i = 1;
-    // Avvio Ciclo While
-    while (i <= 16) {
-        let risultato = parseInt(Math.floor(Math.random() * 81));
-        // Logghiamo in console
-        console.log(risultato);
-        // Pushiamo risultato dentro ad array numbers
-        arrayNumbers.push(risultato);
-        // N Volte da ripetere risultato
-        i++
-    }
-    let risultato = arrayNumbers;
-    return risultato;
-}
 
-risultato = getRandom81()
-console.log(risultato);
 
-// Terza Funzione
-console.log("numeri random per difficoltà 49");
-function getRandom49() {
-    // Array Vuoto
-    const arrayNumbers = [];
-    // Costante i
-    let i = 1;
-    // Avvio Ciclo While
-    while (i <= 16) {
-        let risultato = parseInt(Math.floor(Math.random() * 49));
-        // Logghiamo in console
-        console.log(risultato);
-        // Pushiamo risultato dentro ad array numbers
-        arrayNumbers.push(risultato);
-        // N Volte da ripetere risultato
-        i++
-    }
-    let risultato = arrayNumbers;
-    return risultato;
-}
 
-risultato = getRandom49()
-console.log(risultato);
+// funzione numeri randomici
+// function getRandom(cells_number) {
+//     // Array Vuoto
+//     const arrayNumbers = [];
+//     // Costante i
+//     let i = 1;
+//     // Avvio Ciclo While
+//     while (i <= 16) {
+//         let risultato = parseInt(Math.floor(Math.random() * cells_number));
+//         // Logghiamo in console
+//         console.log(risultato);
+//         // Pushiamo risultato dentro ad array numbers
+//         arrayNumbers.push(risultato);
+//         // N Volte da ripetere risultato
+//         i++
+//     }
+//     let risultato = arrayNumbers;
+//     return risultato;
+// }
 

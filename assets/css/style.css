@@ -58,9 +58,14 @@
 }
 
 /* cella selezionata */
-.cell.selected {
+.selected {
     color: white;
     background-color: cornflowerblue;
+}
+
+.cell_bomb {
+    color: black;
+    background-color: red;
 }
 
 
