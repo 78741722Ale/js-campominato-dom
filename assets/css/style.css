@@ -26,19 +26,19 @@
 /* Site Header */
 #site_header {
     background-color: var(--bg_header);
-    height: 12vh;
+    height: 100px;
 }
 
 /* Site Main */
 #site_main {
     background-color: var(--bg_main);
-    height: calc(100vh - 20vh);
+    height: calc(100% - 200px);
 }
 
 /* Site footer */
 #site_footer {
     background-color: var(--bg_footer);
-    height: 8vh;
+    height: 100px;
 }
 
 /* Colore per tasto play */
