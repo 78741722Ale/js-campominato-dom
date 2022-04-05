@@ -1,0 +1,67 @@
+/* Regola Generale */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Regola comune per id delle macro aree */
+#site_header,
+#site_main,
+#site_footer {
+    width: 100%;
+}
+
+/* Elemento radice */
+:root {
+    --bg_header: #FFFFFF;
+    --bg_main: #7FFFD4;
+    --bg_footer: #FFFFFF;
+    --bg_cell_default: #7FFFD4;
+    --bg_cell_active: #6495ED;
+    --color_cell_default: #000000;
+    --color_cell_active: #FFFFFF;
+}
+
+/* Site Header */
+#site_header {
+    background-color: var(--bg_header);
+    height: 12vh;
+}
+
+/* Site Main */
+#site_main {
+    background-color: var(--bg_main);
+    height: calc(100vh - 20vh);
+}
+
+/* Site footer */
+#site_footer {
+    background-color: var(--bg_footer);
+    height: 8vh;
+}
+
+/* Colore per tasto play */
+.bg_play {
+    background-color: lightgrey;
+    border: 0.5px solid black;
+}
+
+/* Celle da aggiungere */
+.cell {
+    aspect-ratio: 1 / 1;
+    background-color: var(--bg_cell_default);
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* cella selezionata */
+.cell.selected {
+    color: white;
+    background-color: cornflowerblue;
+}
+
+
+
